@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import authRoute from './routes/authroute.js';
-
+import DeviceRoute from './routes/DeviceRoute.js';
 dotenv.config();
 
 const app = express();
@@ -11,6 +11,7 @@ app.get('/', (req, res) => {
     res.send('Smart Home API is running!');
   });
 app.use('/api/auth', authRoute);
+app.use('/api/device',DeviceRoute);
 
 mongoose.connect(process.env.MONGO_URI, {
   
